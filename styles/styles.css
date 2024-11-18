@@ -1,0 +1,126 @@
+.horizontal {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #7E7D7C;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    width: 100%;
+}
+
+.horizontal li {
+    flex-grow: 1;
+    text-align: center;
+}
+
+
+.horizontal li a{
+    display: block;
+    color: white;
+    padding: 14px 0;
+    text-decoration: none;
+    width: 100%;
+}
+
+.horizontal li a:hover{
+    background-color: #8192ab;
+    width: 102%;
+    transition: 0.99s;
+}
+
+.vertical-izq {
+    position: relative;
+    float: left;
+    list-style-type: none;
+    padding: 0%;
+    width: 10%;
+    background-color: #7E7D7C;
+    text-align: center;
+}
+
+.vertical-izq li{
+    float: right;
+    width: 100%;
+}
+
+.vertical-izq li a{
+    color: white;
+    display: block;
+    text-align: center;
+    padding: 14px 5px;
+    text-decoration: none;
+}
+
+.vertical-izq li a:hover{
+    background-color: #8192ab;
+    width: 102%;
+    transition: 0.99s;
+}
+
+.vertical-izq h1{
+    color: white;
+}
+
+footer {
+    background-color: #7E7D7C;
+    color: white;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    text-align: center;
+    height: auto;
+}
+
+
+
+/* Pantallas medianas */
+@media (max-width: 1024px) {
+    .horizontal li a {
+        padding: 10px; /* Reduce el tamaño del padding */
+    }
+    
+    .vertical-izq {
+        width: 20%; /* Amplía el menú lateral */
+    }
+    
+    .centrar .formulario {
+        width: 80%; /* Reduce el ancho del formulario */
+    }
+    
+    .grid {
+        grid-template-columns: repeat(2, 1fr); /* Dos columnas en lugar de tres */
+    }
+}
+
+
+/* Pantallas pequeñas */
+@media (max-width: 768px) {
+    .horizontal {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .horizontal li {
+        flex-grow: unset; /* Quita el crecimiento flexible */
+        width: 100%;
+    }
+    
+    .centrar {
+        height: auto;
+        padding: 10px;
+        position: relative;
+    }
+    
+    .centrar .formulario {
+        width: 100%; /* Ocupa todo el ancho disponible */
+        height: auto; /* Ajusta la altura según el contenido */
+        padding: 20px;
+    }
+    
+    .grid {
+        grid-template-columns: repeat(1, 1fr); /* Una sola columna */
+    }
+}

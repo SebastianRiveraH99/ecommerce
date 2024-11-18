@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito de Compras</title>
+    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="../styles/carrito.css">
+</head>
+<body>
+    <header>
+        <ul class="horizontal">
+            <li><a href="televisores.html">Inicio</a></li>
+            <li><a href="carrito.html">Carrito</a></li>
+            <li><a href="login.html">Ingresar</a></li>
+            <li><a href="registro.html">Registrarse</a></li>
+        </ul>
+    </header>
+
+    <div class="container">
+        <h1>Carrito de Compras</h1>
+        <table id="cart-table">
+            <thead>
+                <tr>
+                    <th>Producto</th>
+                    <th>Precio</th>
+                    <th>Cantidad</th>
+                    <th>Total</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Aquí se llenará dinámicamente con JavaScript -->
+            </tbody>
+        </table>
+        <div class="actions">
+            <button id="clear-cart">Vaciar Carrito</button>
+            <button id="checkout">Procesar Compra</button>
+        </div>
+        <h2 id="total-amount">Total: $0.00</h2>
+    </div>
+
+    <footer>
+        <p>&copy; Todos los derechos reservados</p>
+    </footer>
+
+    <script src="../scripts/carrito.js"></script>
+</body>
+</html>

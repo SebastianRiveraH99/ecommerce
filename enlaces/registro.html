@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="../styles/registro.css">
+</head>
+<body>
+    <header>
+        <ul class="horizontal">
+            <li><a href="televisores.html">Inicio</a></li>
+            <li><a href="login.html">Ingresar</a></li>
+            <li><a href="registro.html">Registrarse</a></li>
+            <li><a href="comentarios.html">Comentarios</a></li>
+            <li><a href="login.html">Salir</a></li>
+        </ul>
+    </header>
+    <div class="centrar">
+        <div class="formulario">
+            <form id="registroForm" class="tabla">
+                <label for="email">CORREO</label>
+                <input id="email" type="email" placeholder="example@correo.com" required>
+                <label for="password">CONTRASEÑA</label>
+                <input id="password" type="password" required minlength="6" maxlength="40">
+                <label for="confirmPassword">REPETIR CONTRASEÑA</label>
+                <input id="confirmPassword" type="password" required minlength="6" maxlength="40">
+                <button type="submit" class="diseño">Registrarse</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy;Todos los derechos reservados</p>
+    </footer>
+    <script src="../javascript/registro.js"></script>
+</body>
+</html>

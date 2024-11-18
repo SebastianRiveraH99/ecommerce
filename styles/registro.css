@@ -1,0 +1,104 @@
+.centrar {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    height: 100vh;
+ 
+}
+
+.centrar .formulario{
+    display: grid;
+    padding: 15px;
+    width: 400px;
+    height: 300px;
+    color: white;
+    background-color: #939291;
+    text-align: center;
+    align-items: center;
+    border-radius: 20px;
+    font-weight: bold;
+    
+}
+
+.formulario .tabla{
+    display: grid;
+    gap: 22px;
+    justify-content: center;
+}
+
+.tabla input{
+    border-radius: 20px;
+}
+
+.tabla .diseño:hover{
+    background-color: #b7ceef;
+    cursor: pointer;
+    width: 102%;
+    text-transform: uppercase;
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 10px;
+    margin: 2rem 0;
+    padding-left: 15px;
+}
+
+.descripcion{
+    text-align: center;
+    & p{
+        font-size: 15px;
+        padding-bottom: 30px;
+    }
+}
+
+
+
+/* Pantallas medianas */
+@media (max-width: 1024px) {
+    .horizontal li a {
+        padding: 10px; /* Reduce el tamaño del padding */
+    }
+    
+    .vertical-izq {
+        width: 20%; /* Amplía el menú lateral */
+    }
+    
+    .centrar .formulario {
+        width: 80%; /* Reduce el ancho del formulario */
+    }
+    
+    .grid {
+        grid-template-columns: repeat(2, 1fr); /* Dos columnas en lugar de tres */
+    }
+}
+
+@media (max-width: 768px) {
+    .horizontal {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .horizontal li {
+        flex-grow: unset; /* Quita el crecimiento flexible */
+        width: 100%;
+    }
+    
+    .centrar {
+        height: auto;
+        padding: 10px;
+        position: relative;
+    }
+    
+    .centrar .formulario {
+        width: 100%; 
+        height: auto; 
+        padding: 20px;
+    }
+    
+    .grid {
+        grid-template-columns: repeat(1, 1fr); 
+    }
+}
