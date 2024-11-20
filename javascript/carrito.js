@@ -24,6 +24,7 @@ function renderCart() {
             </td>
             <td>${(item.price * item.quantity).toFixed(2)}</td>
             <td>
+            
                 <button onclick="removeItem(${index})">Eliminar</button>
             </td>
         `;

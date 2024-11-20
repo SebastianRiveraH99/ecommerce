@@ -29,7 +29,12 @@ def products():
     cursor = conexion.cursor(dictionary=True)
 
     if request.method == 'GET':
-        cursor.execute("SELECT * FROM products")
+        category = request.args.get('category')
+        query = """
+            SELECT * FROM products where category = %s
+        """
+        values = (category,)
+        cursor.execute(query, values)       
         products = cursor.fetchall()
         conexion.close()
         return jsonify(products)
@@ -48,8 +53,28 @@ def products():
 
 # Continúa con las demás rutas...
 
-if __name__ == '__main__':
-    app.run(debug=True)
+
+
+
+@app.route('/login', methods=['POST'])
+def login():
+    conexion = conectar_db()
+    cursor = conexion.cursor()
+
+    data = request.json
+    query = """
+        SELECT * FROM users where email = %s
+    """
+    values = (data['email'], )
+    cursor.execute(query, values)
+    users = cursor.fetchall()
+    conexion.close()
+    print(users)
+    if users[0][3]==data['password']: 
+         
+        return jsonify({"message": "Login exitoso"}), 201
+    else:
+        return jsonify({"message": "Credenciales incorrectas"}), 500
 
 
 # CRUD para usuarios
@@ -122,5 +147,7 @@ def get_order(order_id):
 
 if __name__ == '__main__':
     app.run(debug=True)
+
+    
 
 

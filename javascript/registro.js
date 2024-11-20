@@ -13,7 +13,7 @@ registroForm.addEventListener("submit", async (e) => {
     }
 
     try {
-        const response = await fetch("http://127.0.0.1:3307/users", {
+        const response = await fetch("http://127.0.0.1:5000/users", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -23,7 +23,7 @@ registroForm.addEventListener("submit", async (e) => {
 
         const data = await response.json();
         if (response.ok) {
-            alert("Registro exitoso");
+            window.location.href="/enlaces/televisores.html"
         } else {
             alert(`Error: ${data.message}`);
         }

@@ -7,9 +7,10 @@ loginForm.addEventListener("submit", async (e) => {
     const password = document.getElementById("password").value;
 
     try {
-        const response = await fetch("http://127.0.0.1:5000/login", {
+        const response = await fetch("http://localhost:5000/login", {
             method: "POST",
             headers: {
+                'Accept': 'application/json',
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({ email, password })
@@ -17,7 +18,7 @@ loginForm.addEventListener("submit", async (e) => {
 
         const data = await response.json();
         if (response.ok) {
-            alert("Inicio de sesión exitoso");
+            window.location.href="/enlaces/televisores.html"
             // Redirigir o guardar token si es necesario
         } else {
             alert(`Error: ${data.message}`);

@@ -1,16 +1,20 @@
 // productos.js
 document.addEventListener("DOMContentLoaded", async () => {
     const container = document.querySelector(".grid");
+    let category = window.location.pathname.split("/").pop()
+    category = category.replace(".html","")
 
-    const response = await fetch("http://localhost:5000/products");
+    const response = await fetch("http://localhost:5000/products?category="+category);
     const products = await response.json();
 
     if (response.ok) {
+        
         container.innerHTML = products.map(product => `
             <div class="descripcion">
                 <img src="../img/${product.name.toLowerCase().replace(/\s/g, "")}.jpeg" alt="${product.name}">
                 <h1>${product.name}</h1>
-                <p>${product.price} - Stock: ${product.stock}</p>
+                <p>${product.price} - Descripción: ${product.description}</p>
+                <button onclick='addToCart(${JSON.stringify(product)})'>Agregar al Carrito</button>
             </div>
         `).join("");
     } else {
@@ -19,6 +23,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 });
 
 function addToCart(product) {
+    let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
     const existingItem = carrito.find(item => item.id === product.id);
 
     if (existingItem) {
@@ -31,12 +36,6 @@ function addToCart(product) {
     alert("Producto agregado al carrito");
 }
 
-container.innerHTML = products.map(product => `
-    <div class="descripcion">
-        <img src="../img/${product.name.toLowerCase().replace(/\s/g, "")}.jpeg" alt="${product.name}">
-        <h1>${product.name}</h1>
-        <p>${product.price} - Stock: ${product.stock}</p>
-        <button onclick='addToCart(${JSON.stringify(product)})'>Agregar al Carrito</button>
-    </div>
-`).join("");
+
+
 
